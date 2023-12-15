@@ -83,6 +83,9 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "this" {
     var.tgw_vpc_attachment_tags,
     try(each.value.tags, {}),
   )
+  lifecycle { 
+    ignore_changes = [ transit_gateway_default_route_table_association ]
+  }
 }
 
 ################################################################################

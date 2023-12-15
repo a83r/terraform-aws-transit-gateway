@@ -84,7 +84,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "this" {
     try(each.value.tags, {}),
   )
   lifecycle { 
-    ignore_changes = [ transit_gateway_default_route_table_association ]
+    ignore_changes = [ transit_gateway_default_route_table_association , transit_gateway_default_route_table_propagation  ]
   }
 }
 

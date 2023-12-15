@@ -1,5 +1,6 @@
 locals {
   # List of maps with key and route values
+  #test
   vpc_attachments_with_routes = chunklist(flatten([
     for k, v in var.vpc_attachments : setproduct([{ key = k }], v.tgw_routes) if var.create_tgw && can(v.tgw_routes)
   ]), 2)
